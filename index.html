@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
   <body>
     <nav class="bg-red-600">
@@ -59,7 +60,25 @@
         </div>
       </div>
     </nav>
-    <div>
-    </div>
+    <section class="content">
+      <ol class="pokemons" id="pokemons">
+        <li class="pokemon grass" id="pokemon">
+          <div class="pokeinfo">              
+              <span class="name" style="font-weight: bold;">bulbasaur</span>
+              <span class="number">#001</span>
+              <ol class="types">
+                  <li class="type">grass</li><li class="type">poison</li>
+              </ol>
+          </div> 
+          <div class="pokeimg">
+              <img src="https://projectpokemon.org/images/normal-sprite/bulbasaur.gif" alt="">
+              <img class="imgbackground" src="https://pokemoncalc.web.app/en/assets/pokeball.svg" alt="bulbasaur">
+          </div>
+        </li>
+      </ol>
+    </section>
   </body>
+  <script src="assets/js/pokemon-model.js"></script>
+  <script src="assets/js/poke-api.js"></script>
+  <script src="assets/js/main.js"></script>
 </html

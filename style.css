@@ -62,12 +62,12 @@ body {
     z-index: 1;
 }
 .pokeimg {
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     position: relative;
     float: right;
     top: -4.2rem;
-    padding: 1rem;
+    padding: 3rem;
     margin-left: 10px;
     
 }
@@ -80,7 +80,7 @@ body {
     filter: invert(1);
     transform: rotate(45deg) !important;
     top: -3rem !important;
-    left: -3rem !important;
+    left: 1.5rem !important;
 
 }
 .pokeinfo {
@@ -168,8 +168,8 @@ body {
 }
 .pagination button {
     padding: .25rem .5rem;
-    color: white;
-    background-color: #6c79db;
+    color: rgb(255, 255, 255);
+    background-color: #868896;
     border: none;
     border-radius: 1rem;
 }

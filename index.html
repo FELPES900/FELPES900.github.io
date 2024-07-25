@@ -17,26 +17,28 @@
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
                 <form class="max-w-sm mx-auto">
-                  <select id="selectGen" class="border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                    <option selected value="tipo1">Geração 1</option>
-                    <option value="tipo2">Geração 2</option>
-                    <option value="tipo3">Geração 3</option>
-                    <option value="tipo4">Geração 4</option>
-                    <option value="tipo5">Geração 5</option>
-                    <option value="tipo6">Geração 6</option>
-                    <option value="tipo7">Geração 7</option>
-                    <option value="tipo8">Geração 8</option>
-                    <option value="tipo9">Geração 9</option>
+                  <select id="selectGen" class="selectGen border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                    <option selected value="generation-i">Geração 1</option>
+                    <option value="generation-ii">Geração 2</option>
+                    <option value="generation-iii">Geração 3</option>
+                    <option value="generation-iv">Geração 4</option>
+                    <option value="generation-v">Geração 5</option>
+                    <option value="generation-vi">Geração 6</option>
+                    <option value="generation-vii">Geração 7</option>
+                    <option value="generation-vii">Geração 8</option>
+                    <option value="generation-ix">Geração 9</option>
                   </select>
                 </form>
                 <form class="max-w-sm mx-auto">
-                  <select id="selectElement" class="border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                    <option selected value="">Elementos</option>
-                    <option value="tipo1">Normal</option>
-                    <option value="tipo2">TIpo Fogo</option>
-                    <option value="tipo3">Tipo Agua</option>
+                  <select id="selectTipo" class="selectTipo border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                      
                   </select>
                 </form>
+                <!-- <form class="max-w-sm mx-auto">
+                  <select id="selectNormal" class="border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                      
+                  </select>
+                </form> -->
               </div>
             </div>
           </div>
@@ -56,10 +58,21 @@
       <div class="sm:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
           <form class="max-w-sm mx-auto">
-            <select id="selectGen" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-00">
-              <option selected value="gen_1">1</option>
-              <option value="gen_2">2</option>
-              <option value="gen_3">3</option>
+            <select id="selectGenMob" class="selectGenMob border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+              <option selected value="generation-i">Geração 1</option>
+              <option value="generation-ii">Geração 2</option>
+              <option value="generation-iii">Geração 3</option>
+              <option value="generation-iv">Geração 4</option>
+              <option value="generation-v">Geração 5</option>
+              <option value="generation-vi">Geração 6</option>
+              <option value="generation-vii">Geração 7</option>
+              <option value="generation-vii">Geração 8</option>
+              <option value="generation-ix">Geração 9</option>
+            </select>
+          </form>
+          <form class="max-w-sm mx-auto">
+            <select id="selectTipoMob" class=" selectTipoMob border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                
             </select>
           </form>
         </div>
@@ -67,21 +80,7 @@
     </nav>
     <section class="content">
       <ol class="pokemons" id="pokemons">
-        
-        <!-- Estrutura de retorno -->
-        <!-- <li class="pokemon grass" id="pokemon">
-          <div class="pokeinfo">              
-              <span class="name" style="font-weight: bold;">bulbasaur</span>
-              <span class="number">#001</span>
-              <ol class="types">
-                  <li class="type">grass</li><li class="type">poison</li>
-              </ol>
-          </div> 
-          <div class="pokeimg">
-              <img src="https://projectpokemon.org/images/normal-sprite/bulbasaur.gif" alt="">
-              <img class="imgbackground" src="https://pokemoncalc.web.app/en/assets/pokeball.svg" alt="bulbasaur">
-          </div>
-        </li> -->
+        <!-- pokemons -->
       </ol>
       <div class="pagination">
         <button id="loadMoreButton" type="button">

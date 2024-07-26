@@ -1,26 +1,41 @@
-const selectGen     = document.getElementById('selectGen');
-const selectTipo    = document.getElementById('selectTipo');
-const selectGenMob  = document.getElementById('selectGenMob');
-const selectTipoMob = document.getElementById('selectTipoMob');
+const selectGen      = document.getElementById('selectGen');
+const selectTipo     = document.getElementById('selectTipo');
+const selectGenMob   = document.getElementById('selectGenMob');
+const selectTipoMob  = document.getElementById('selectTipoMob');
+const loadMoreButton = document.getElementById('loadMoreButton');
+let = offset = 0
+
+main()
 
 selectGen.addEventListener('change', function() {
     let gen = this.value;
+    offset = 0
     document.getElementById('pokemons').innerHTML = '';
     main(gen);
 })
 
 selectTipo.addEventListener('change', function(event) {
     document.getElementById('pokemons').innerHTML = '';
+    offset = 0
     main(selectGen.value,event.target.value);
 })
 
+loadMoreButton.addEventListener('click', function() {
+    if (selectGen.value) {
+        main(selectGen.value, selectTipo.value, offset += 10);
+    } else {
+        main(selectGenMob.value, selectTipoMob.value, offset += 10);
+    }
+})
+
 selectTipoMob.addEventListener('change', function(eventMob) {
+    offset = 0
     document.getElementById('pokemons').innerHTML = '';
     main(selectGenMob.value,eventMob.target.value);
 })
 
 selectGenMob.addEventListener('change', function() {
-    let gen = this.value;
+    offset = 0
     document.getElementById('pokemons').innerHTML = '';
     main(selectGenMob.value);
 })
@@ -34,8 +49,8 @@ function fazGet(url) {
 }
 
 
-function main(generation = "generation-i",tipoParam) {
-    let data = fazGet('https://pokeapi.co/api/v2/pokemon?offset=0&limit=10');
+function main(generation = "generation-i",tipoParam,offset = 0) {
+    let data = fazGet('https://pokeapi.co/api/v2/pokemon?offset='+offset+'&limit=10');
     let pokemons = JSON.parse(data);
     let selectTipo = document.getElementById('selectTipo');
     let pokemon = null
@@ -89,5 +104,3 @@ function corpo(rota, pokemonData, tipo) {
             </div>
         </li>`
 }
-
-main()

@@ -3,6 +3,7 @@ const selectTipo     = document.getElementById('selectTipo');
 const selectGenMob   = document.getElementById('selectGenMob');
 const selectTipoMob  = document.getElementById('selectTipoMob');
 const loadMoreButton = document.getElementById('loadMoreButton');
+const inputSearch    = document.getElementById('inputSearch');
 let = offset = 0
 
 main()
@@ -104,3 +105,49 @@ function corpo(rota, pokemonData, tipo) {
             </div>
         </li>`
 }
+    
+function getPokemonNames() {
+    return new Promise((resolve, reject) => {
+        fetch('pokemons.json')
+        .then(response => response.json())
+        .then(data => {
+            const names = data.results.map(pokemon => pokemon.name);
+            resolve(names);
+        })
+        .catch(error => {
+            reject(error);
+        });
+    });
+}
+    
+getPokemonNames().then(pokemonNames => {
+        dados = pokemonNames
+});
+
+
+function buscarNomes() {
+    const input = document.getElementById('input-nome');
+    const termo = input.value.trim();
+    const nomes = dados;
+    const nomesEncontrados = nomes.filter(nome => nome.toLowerCase().includes(termo.toLowerCase()));
+    const resultado = document.getElementById('resultado');
+    let listapokemons = document.getElementById('pokemons');
+    let request = null
+    
+    resultado.innerHTML = '';
+    
+    if (nomesEncontrados.length === 1302) {
+        listapokemons.innerHTML = '';
+        main();
+    } else {
+        listapokemons.innerHTML = '';
+        nomesEncontrados.forEach(nome => {
+        request = new XMLHttpRequest();
+        request.open('GET', "https://pokeapi.co/api/v2/pokemon/" + nome, false);
+        request.send();
+        pokemonData = JSON.parse(request.responseText);
+        rota = pokemonData.sprites.versions[selectGen.value]
+        corpo(rota, pokemonData, selectTipo.value);
+      });
+    }
+  }

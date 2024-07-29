@@ -34,11 +34,11 @@
                       <!-- Tipos de geração -->
                   </select>
                 </form>
-                <!-- <form class="max-w-sm mx-auto">
-                  <select id="selectNormal" class="border border-gray-300 bg-[#171717] text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                      
-                  </select>
-                </form> -->
+                <!-- <input id="inputSearch" type="text"  placeholder="Pesquisar..."> -->
+                <div>
+                  <input type="text" id="input-nome" placeholder="Digite um nome">
+                  <button onclick="buscarNomes()">Confirmar</button>
+                </div>
               </div>
             </div>
           </div>
@@ -79,6 +79,7 @@
       </div>
     </nav>
     <section class="content">
+      <ul id="resultado"></ul>
       <ol class="pokemons" id="pokemons">
         <!-- pokemons -->
       </ol>

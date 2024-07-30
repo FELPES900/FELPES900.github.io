@@ -4,9 +4,25 @@ const selectGenMob   = document.getElementById('selectGenMob');
 const selectTipoMob  = document.getElementById('selectTipoMob');
 const loadMoreButton = document.getElementById('loadMoreButton');
 const inputSearch    = document.getElementById('inputSearch');
+const input_busca    = document.getElementById('input-nome');
+const input_busca_mob = document.getElementById('input-nome-mob');
 let = offset = 0
 
 main()
+
+input_busca.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        buscarNomes();
+    }
+})
+
+input_busca_mob.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        buscarNomes();
+    }
+})
 
 selectGen.addEventListener('change', function() {
     let gen = this.value;

@@ -91,19 +91,22 @@ function main(generation = "generation-i",tipoParam,offset = 0) {
 
 function corpo(rota, pokemonData, tipo) {
     let listapokemons = document.getElementById('pokemons');
-    listapokemons.innerHTML += `<li class="pokemon ${pokemonData.types[0].type.name}" id="pokemon">
-            <div class="pokeinfo">              
-                <span class="name" style="font-weight: bold;">${pokemonData.forms[0].name}</span>
-                <span class="number">#${pokemonData.id}</span>
-                <ol class="types">
-                    ${pokemonData.types.map(type => `<li class="type">${type.type.name}</li>`).join('')}
-                </ol>
-            </div> 
-            <div class="pokeimg">
-                <img src="${rota[tipo]["front_default"]}" alt="">
-                <img class="imgbackground" src="https://pokemoncalc.web.app/en/assets/pokeball.svg" alt="">
-            </div>
-        </li>`
+    if (rota[tipo]["front_default"]) {
+        listapokemons.innerHTML += `<li class="pokemon ${pokemonData.types[0].type.name}" id="pokemon">
+        <div class="pokeinfo">              
+            <span class="name" style="font-weight: bold;">${pokemonData.forms[0].name}</span>
+            <span class="number">#${pokemonData.id}</span>
+            <ol class="types">
+                ${pokemonData.types.map(type => `<li class="type">${type.type.name}</li>`).join('')}
+            </ol>
+        </div> 
+        <div class="pokeimg">
+            <img src="${rota[tipo]["front_default"]}" alt="">
+            <img class="imgbackground" src="https://pokemoncalc.web.app/en/assets/pokeball.svg" alt="">
+        </div>
+    </li>`
+    } 
+
 }
     
 function getPokemonNames() {
@@ -149,5 +152,38 @@ function buscarNomes() {
         rota = pokemonData.sprites.versions[selectGen.value]
         corpo(rota, pokemonData, selectTipo.value);
       });
+    }
+  }
+
+  async function fetchPokemonData() {
+    try {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+      const data = await response.json();
+      savePokemonDataToCookies(data);
+    } catch (error) {
+      console.error("Erro ao buscar dados da API de Pokémon:", error);
+    }
+  }
+  
+  // Exemplo de uso
+  fetchPokemonData();
+
+  // Função para gravar dados em cookies
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+  }
+  
+  // Função para gravar dados da API de Pokémon em cookies
+  async function savePokemonDataToCookies(data) {
+    try {
+      setCookie("pokemonData", JSON.stringify(data), 7); // Grava os dados da API de Pokémon em cookies por 7 dias
+    } catch (error) {
+      console.error("Erro ao gravar dados da API de Pokémon em cookies:", error);
     }
   }
